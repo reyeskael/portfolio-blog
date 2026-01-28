@@ -3,15 +3,34 @@ import { makeStyles } from '@mui/styles';
 import { colorPalette } from '../utils/cosmeticsHelper';
 import { TechStack } from '../component/TechStack';
 import { WorkExperience } from '../component/WorkExperience';
+import ProfilePicture from '../assets/ProfilePicture.png';
 
 const useStyles = makeStyles({
+	container: {
+		'&&': {
+			maxWidth: '1000px',
+		}
+	},
 	introSection: {
-		padding: '64px 0',
-		textAlign: 'center',
+		paddingTop: '64px',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+	},
+	introContent: {
+		flex: 1,
+		textAlign: 'left',
+	},
+	profilePicture: {
+		width: '250px',
+		height: '250px',
+		borderRadius: '50%',
+		objectFit: 'cover',
+		border: `4px solid ${colorPalette.PRIMARY}`,
+		flexShrink: 0,
 	},
 	greeting: {
-		color: colorPalette.PRIMARY,
-		marginBottom: '16px',
+		color: colorPalette.PRIMARY
 	},
 	name: {
 		color: colorPalette.PRIMARY,
@@ -20,12 +39,10 @@ const useStyles = makeStyles({
 	},
 	descriptionWrapper: {
 		maxWidth: '600px',
-		margin: '0 auto',
 	},
 	description: {
 		color: colorPalette.INFO,
 		lineHeight: 1.8,
-		textAlign: 'center',
 	},
 });
 
@@ -33,23 +50,30 @@ export const MainPage: React.FC = () => {
 	const classes = useStyles();
 
 	return (
-		<Container className="pageContainerWithHeader">
+		<Container className={classes.container}>
 			<Box className={classes.introSection}>
-				<Typography variant="h5" className={classes.greeting}>
-					Hello, I'm
-				</Typography>
-				<Typography variant="h2" className={classes.name}>
-					Michael Reyes
-				</Typography>
-				<Box className={classes.descriptionWrapper}>
-					<Typography variant="body1" className={classes.description}>
-						A 27-year-old software engineer passionate about building modern web applications. 
-						I specialize in creating elegant, efficient, and user-friendly solutions using 
-						cutting-edge technologies.
+				<Box className={classes.introContent}>
+					<Typography variant="h5" className={classes.greeting}>
+						Hello, I'm
 					</Typography>
+					<Typography variant="h2" className={classes.name}>
+						Michael Reyes
+					</Typography>
+					<Box className={classes.descriptionWrapper}>
+						<Typography variant="body1" className={classes.description}>
+							A software engineer with over 7 years of experience building modern web applications. 
+							Specialized in full-stack development using React, Node.js, TypeScript, and cloud 
+							technologies. Passionate about creating scalable, efficient, and user-friendly solutions.
+						</Typography>
+					</Box>
 				</Box>
-				<TechStack />
+				<img
+					src={ProfilePicture}
+					alt="Michael Reyes"
+					className={classes.profilePicture}
+				/>
 			</Box>
+			<TechStack />
 
 			<WorkExperience />
 		</Container>

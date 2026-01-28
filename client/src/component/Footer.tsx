@@ -4,6 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import EmailIcon from '@mui/icons-material/Email';
 import { colorPalette } from '../utils/cosmeticsHelper';
 
 const useStyles = makeStyles({
@@ -27,14 +28,16 @@ interface FooterProps {
 	githubUrl?: string;
 	instagramUrl?: string;
 	facebookUrl?: string;
+	email?: string;
 }
 
 export const Footer = ({
 	text = '© 2026 All rights reserved.',
-	linkedInUrl = '#',
-	githubUrl = '#',
-	instagramUrl = '#',
-	facebookUrl = '#',
+	linkedInUrl = 'https://www.linkedin.com/in/michael-reyes-b41801194/',
+	githubUrl = 'https://github.com/reyeskael',
+	instagramUrl = 'https://www.instagram.com/mchlrys.tsx',
+	facebookUrl = 'https://www.facebook.com/mchlrys.tsx',
+	email = 'michaelreyes0202@gmail.com',
 }: FooterProps) => {
 	const classes = useStyles();
 
@@ -73,6 +76,13 @@ export const Footer = ({
 					aria-label="Facebook"
 				>
 					<FacebookIcon />
+				</IconButton>
+				<IconButton
+					color="secondary"
+					href={`mailto:${email}`}
+					aria-label="Email"
+				>
+					<EmailIcon />
 				</IconButton>
 			</Box>
 			<Typography variant="body2">{text}</Typography>
