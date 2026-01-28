@@ -16,12 +16,12 @@ interface MenuItem {
 	text: string,
 	link: string
 }
-interface PageHeaderProps {
+interface HeaderProps {
 	title: string,
 	menuItems: MenuItem[]
 }
 
-export const PageHeader = ({title, menuItems}: PageHeaderProps) => {
+export const Header = ({title, menuItems}: HeaderProps) => {
 	const classes = useStyles();
 
 	return (

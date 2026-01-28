@@ -5,7 +5,7 @@ import { ThemeProvider } from '@mui/material';
 
 import './App.css';
 import { BlogPage, MainPage } from './page';
-import { PageHeader } from './component';
+import { Footer, Header } from './component';
 import { customTheme } from './utils';
 import rootReducer from './reducer';
 
@@ -22,11 +22,12 @@ const App: React.FC = () => {
 	return (
 		<Provider store={store}>
 			<ThemeProvider theme={customTheme}>
-				<PageHeader title="Michael Reyes" menuItems={menuItems} />
+				<Header title="Michael Reyes" menuItems={menuItems} />
 				<Routes>
 					<Route path="/" element={<MainPage/>} />
 					<Route path="/blog" element={<BlogPage/>} />
 				</Routes>
+				<Footer />
 			</ThemeProvider>
 		</Provider>
 	);
