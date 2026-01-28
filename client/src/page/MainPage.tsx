@@ -2,6 +2,7 @@ import { Box, Container, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { colorPalette } from '../utils/cosmeticsHelper';
 import { TechStack } from '../component/TechStack';
+import { WorkExperience } from '../component/WorkExperience';
 
 const useStyles = makeStyles({
 	introSection: {
@@ -49,6 +50,8 @@ export const MainPage: React.FC = () => {
 				</Box>
 				<TechStack />
 			</Box>
+
+			<WorkExperience />
 		</Container>
 	);
 }

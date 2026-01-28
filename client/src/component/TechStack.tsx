@@ -10,11 +10,18 @@ import HTML5Icon from '../assets/icons/HTML5.svg';
 import MongoDBIcon from '../assets/icons/MongoDB.svg';
 
 const useStyles = makeStyles({
+	container: {
+		marginTop: '48px',
+	},
+	title: {
+		color: colorPalette.PRIMARY,
+		textAlign: 'center',
+		marginBottom: '24px',
+	},
 	techStack: {
 		display: 'flex',
 		justifyContent: 'center',
 		gap: '24px',
-		marginTop: '32px',
 		flexWrap: 'wrap',
 	},
 	card: {
@@ -61,17 +68,22 @@ export const TechStack = () => {
 	const classes = useStyles();
 
 	return (
-		<Box className={classes.techStack}>
-			{techStackItems.map((tech) => (
-				<Tooltip key={tech.name} title={tech.name} arrow>
-					<Card className={classes.card} elevation={2}>
-						<CardContent className={classes.cardContent}>
-							<img src={tech.icon} alt={tech.name} className={classes.icon} />
-							<Typography className={classes.techLabel}>{tech.name}</Typography>
-						</CardContent>
-					</Card>
-				</Tooltip>
-			))}
+		<Box className={classes.container}>
+			<Typography variant="h4" className={classes.title}>
+				Tech Stack
+			</Typography>
+			<Box className={classes.techStack}>
+				{techStackItems.map((tech) => (
+					<Tooltip key={tech.name} title={tech.name} arrow>
+						<Card className={classes.card} elevation={2}>
+							<CardContent className={classes.cardContent}>
+								<img src={tech.icon} alt={tech.name} className={classes.icon} />
+								<Typography className={classes.techLabel}>{tech.name}</Typography>
+							</CardContent>
+						</Card>
+					</Tooltip>
+				))}
+			</Box>
 		</Box>
 	);
 };
