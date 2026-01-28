@@ -3,7 +3,7 @@ import { SxProps, Theme, createTheme } from "@mui/material";
 export const colorPalette = {
 	WHITE: "#FFFFFF",
 	PRIMARY: "#404258",
-	SECONDARY: "#50577A",
+	SECONDARY: "#F5DEB3",
 	INFO: "#6B728E"
 };
 
@@ -11,7 +11,7 @@ export const customTheme: Theme = createTheme({
 	palette: {
 		primary: {
 			main: colorPalette.PRIMARY,
-			contrastText: colorPalette.WHITE
+			contrastText: colorPalette.SECONDARY
 		},
 		secondary: {
 			main: colorPalette.SECONDARY,

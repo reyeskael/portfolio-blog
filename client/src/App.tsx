@@ -11,11 +11,18 @@ import rootReducer from './reducer';
 
 const store = createStore(rootReducer);
 
+const menuItems = [
+	{text: 'Home', link: '/'},
+	{text: 'Blog', link: '/blog'},
+	{text: 'Work', link: '/work'},
+	{text: 'About', link: '/about'}
+];
+
 const App: React.FC = () => {
 	return (
 		<Provider store={store}>
 			<ThemeProvider theme={customTheme}>
-				<PageHeader title="Michael Reyes" />
+				<PageHeader title="Michael Reyes" menuItems={menuItems} />
 				<Routes>
 					<Route path="/" element={<MainPage/>} />
 					<Route path="/blog" element={<BlogPage/>} />
