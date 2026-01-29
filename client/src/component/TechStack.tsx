@@ -13,18 +13,18 @@ const useStyles = makeStyles({
     container: {
         gap: '10px',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'
     },
 	title: {
 		color: colorPalette.PRIMARY,
 		textAlign: 'center',
-		marginBottom: '24px',
+		marginBottom: '24px'
 	},
 	techStack: {
 		display: 'flex',
 		justifyContent: 'center',
 		gap: '24px',
-		flexWrap: 'wrap',
+		flexWrap: 'wrap'
 	},
 	card: {
 		width: '120px',
@@ -32,8 +32,8 @@ const useStyles = makeStyles({
 		cursor: 'pointer',
 		'&:hover': {
 			transform: 'translateY(-8px)',
-			boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
-		},
+			boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)'
+		}
 	},
 	cardContent: {
 		display: 'flex',
@@ -41,20 +41,20 @@ const useStyles = makeStyles({
 		alignItems: 'center',
 		padding: '24px 16px',
 		'&:last-child': {
-			paddingBottom: '24px',
-		},
+			paddingBottom: '24px'
+		}
 	},
 	icon: {
 		width: '48px',
 		height: '48px',
-		marginBottom: '12px',
+		marginBottom: '12px'
 	},
 	techLabel: {
 		fontSize: '14px',
 		fontWeight: 500,
 		color: colorPalette.PRIMARY,
-		textAlign: 'center',
-	},
+		textAlign: 'center'
+	}
 });
 
 const techStackItems = [
@@ -63,7 +63,7 @@ const techStackItems = [
 	{ name: 'JavaScript', icon: JavaScriptIcon },
 	{ name: 'TypeScript', icon: TypeScriptIcon },
 	{ name: 'HTML5', icon: HTML5Icon },
-	{ name: 'MongoDB', icon: MongoDBIcon },
+	{ name: 'MongoDB', icon: MongoDBIcon }
 ];
 
 export const TechStack = () => {

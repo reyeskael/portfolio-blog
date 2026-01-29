@@ -9,21 +9,21 @@ const useStyles = makeStyles({
 		paddingTop: '64px',
 		display: 'flex',
 		alignItems: 'center',
-		justifyContent: 'space-between',
+		justifyContent: 'space-between'
 	},
 	introSectionMobile: {
 		paddingTop: '64px',
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-		textAlign: 'center',
+		textAlign: 'center'
 	},
 	introContent: {
 		flex: 1,
-		textAlign: 'left',
+		textAlign: 'left'
 	},
 	introContentMobile: {
-		textAlign: 'center',
+		textAlign: 'center'
 	},
 	profilePicture: {
 		width: '250px',
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 		borderRadius: '50%',
 		objectFit: 'cover',
 		border: `4px solid ${colorPalette.PRIMARY}`,
-		flexShrink: 0,
+		flexShrink: 0
 	},
 	profilePictureMobile: {
 		width: '180px',
@@ -39,26 +39,26 @@ const useStyles = makeStyles({
 		borderRadius: '50%',
 		objectFit: 'cover',
 		border: `4px solid ${colorPalette.PRIMARY}`,
-		marginBottom: '24px',
+		marginBottom: '24px'
 	},
 	greeting: {
-		color: colorPalette.PRIMARY,
+		color: colorPalette.PRIMARY
 	},
 	name: {
 		color: colorPalette.PRIMARY,
 		fontWeight: 700,
-		marginBottom: '24px',
+		marginBottom: '24px'
 	},
 	descriptionWrapper: {
-		maxWidth: '600px',
+		maxWidth: '600px'
 	},
 	descriptionWrapperMobile: {
-		maxWidth: '100%',
+		maxWidth: '100%'
 	},
 	description: {
 		color: colorPalette.INFO,
-		lineHeight: 1.8,
-	},
+		lineHeight: 1.8
+	}
 });
 
 export const Introduction = () => {

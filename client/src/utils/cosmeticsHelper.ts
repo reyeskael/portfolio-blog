@@ -27,4 +27,4 @@ export const customTheme: Theme = createTheme({
 
 export const pageContainer: SxProps = {
 	bgcolor: colorPalette.WHITE
-}
+};

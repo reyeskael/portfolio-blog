@@ -11,61 +11,61 @@ const useStyles = makeStyles({
     container: {
         gap: '10px',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'
     },
 	sectionTitle: {
 		color: colorPalette.PRIMARY,
 		textAlign: 'center',
-		marginBottom: '32px',
+		marginBottom: '32px'
 	},
 	experienceCard: {
-		marginBottom: '24px',
+		marginBottom: '24px'
 	},
 	companyHeader: {
 		display: 'flex',
 		alignItems: 'center',
 		gap: '16px',
-		marginBottom: '16px',
+		marginBottom: '16px'
 	},
 	companyLogo: {
 		width: '48px',
 		height: '48px',
 		objectFit: 'contain',
-		borderRadius: '8px',
+		borderRadius: '8px'
 	},
 	companyInfo: {
 		display: 'flex',
-		flexDirection: 'column',
+		flexDirection: 'column'
 	},
 	experienceHeader: {
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'flex-start',
 		flexWrap: 'wrap',
-		marginBottom: '8px',
+		marginBottom: '8px'
 	},
 	jobTitle: {
 		color: colorPalette.PRIMARY,
-		fontWeight: 600,
+		fontWeight: 600
 	},
 	company: {
 		color: colorPalette.PRIMARY,
-		fontWeight: 500,
+		fontWeight: 500
 	},
 	duration: {
 		color: colorPalette.INFO,
-		fontSize: '14px',
+		fontSize: '14px'
 	},
 	experienceDescription: {
 		color: colorPalette.INFO,
 		lineHeight: 1.8,
-		marginTop: '12px',
+		marginTop: '12px'
 	},
 	roleSection: {
 		marginTop: '24px',
 		paddingTop: '24px',
-		borderTop: `1px solid ${colorPalette.INFO}20`,
-	},
+		borderTop: `1px solid ${colorPalette.INFO}20`
+	}
 });
 
 interface Role {
@@ -90,9 +90,9 @@ const workExperienceData: WorkExperienceItem[] = [
 			{
 				jobTitle: 'Software Engineer',
 				duration: 'Apr 2024 - Present',
-				description: 'Spearheading front-end development initiatives using React.js and TypeScript, building responsive and performant user interfaces. Responsible for seamless API integration using Axios and managing complex application state with Redux. Ensuring code quality and reliability through comprehensive unit testing with Jest, while collaborating with cross-functional teams to deliver scalable web solutions.',
-			},
-		],
+				description: 'Spearheading front-end development initiatives using React.js and TypeScript, building responsive and performant user interfaces. Responsible for seamless API integration using Axios and managing complex application state with Redux. Ensuring code quality and reliability through comprehensive unit testing with Jest, while collaborating with cross-functional teams to deliver scalable web solutions.'
+			}
+		]
 	},
 	{
 		company: 'Metro Pacific Health',
@@ -102,9 +102,9 @@ const workExperienceData: WorkExperienceItem[] = [
 			{
 				jobTitle: 'Specialist - Developer Analyst',
 				duration: 'Dec 2022 - Apr 2024',
-				description: 'Led full-stack development efforts, architecting and implementing both front-end and back-end solutions using Node.js, React.js, and Express.js. Designed and maintained MongoDB databases with Mongoose ODM for efficient data management. Leveraged MuleSoft Anypoint Studio for low-code API integrations and deployed cloud infrastructure on AWS S3. Facilitated daily developer stand-ups and coordinated weekly vendor meetings to ensure smooth project delivery and team alignment.',
-			},
-		],
+				description: 'Led full-stack development efforts, architecting and implementing both front-end and back-end solutions using Node.js, React.js, and Express.js. Designed and maintained MongoDB databases with Mongoose ODM for efficient data management. Leveraged MuleSoft Anypoint Studio for low-code API integrations and deployed cloud infrastructure on AWS S3. Facilitated daily developer stand-ups and coordinated weekly vendor meetings to ensure smooth project delivery and team alignment.'
+			}
+		]
 	},
 	{
 		company: 'Accenture',
@@ -114,9 +114,9 @@ const workExperienceData: WorkExperienceItem[] = [
 			{
 				jobTitle: 'Application Development Analyst',
 				duration: 'Jul 2021 - Nov 2022',
-				description: 'Delivered enterprise-grade applications through full-stack development using Node.js, React.js, and GraphQL APIs. Built and maintained serverless architectures on AWS utilizing Lambda functions, Step Functions for workflow orchestration, and CloudWatch for monitoring and logging. Practiced Agile methodology with TypeScript across the codebase, ensuring type safety and maintainability. Wrote comprehensive test suites using Jest to guarantee application reliability.',
-			},
-		],
+				description: 'Delivered enterprise-grade applications through full-stack development using Node.js, React.js, and GraphQL APIs. Built and maintained serverless architectures on AWS utilizing Lambda functions, Step Functions for workflow orchestration, and CloudWatch for monitoring and logging. Practiced Agile methodology with TypeScript across the codebase, ensuring type safety and maintainability. Wrote comprehensive test suites using Jest to guarantee application reliability.'
+			}
+		]
 	},
 	{
 		company: 'Sqreem Technologies',
@@ -126,15 +126,15 @@ const workExperienceData: WorkExperienceItem[] = [
 			{
 				jobTitle: 'Software Engineer',
 				duration: 'Jun 2019 - Jun 2021',
-				description: 'Developed dynamic front-end applications with advanced DOM manipulation and responsive designs using JavaScript and CSS. Integrated RESTful APIs and managed cloud resources on AWS including S3 for storage, API Gateway for endpoint management, SQS for message queuing, and CloudWatch for system monitoring. Created wireframes and prototypes to translate business requirements into intuitive user experiences, collaborating closely with stakeholders throughout the design process.',
+				description: 'Developed dynamic front-end applications with advanced DOM manipulation and responsive designs using JavaScript and CSS. Integrated RESTful APIs and managed cloud resources on AWS including S3 for storage, API Gateway for endpoint management, SQS for message queuing, and CloudWatch for system monitoring. Created wireframes and prototypes to translate business requirements into intuitive user experiences, collaborating closely with stakeholders throughout the design process.'
 			},
 			{
 				jobTitle: 'Test Engineer',
 				duration: 'Jun 2018 - May 2019',
-				description: 'Designed comprehensive test plans and executed various testing methodologies including cycle testing, stress testing, and manual testing to ensure software quality. Developed internal testing tools and automation scripts using JavaScript and C#.Net, significantly improving the testing team\'s efficiency. Collaborated with developers to identify and resolve defects early in the development lifecycle, contributing to higher product quality and faster release cycles.',
-			},
-		],
-	},
+				description: 'Designed comprehensive test plans and executed various testing methodologies including cycle testing, stress testing, and manual testing to ensure software quality. Developed internal testing tools and automation scripts using JavaScript and C#.Net, significantly improving the testing team\'s efficiency. Collaborated with developers to identify and resolve defects early in the development lifecycle, contributing to higher product quality and faster release cycles.'
+			}
+		]
+	}
 ];
 
 export const WorkExperience = () => {

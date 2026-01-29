@@ -7,16 +7,16 @@ const useStyles = makeStyles({
 	page: {
 		backgroundColor: colorPalette.TERTIARY,
 		minHeight: '100vh',
-		paddingTop: '64px',
+		paddingTop: '64px'
 	},
 	container: {
 		'&&': {
 			display: 'flex',
 			flexDirection: 'column',
 			maxWidth: '1100px',
-			gap: '48px',
-		},
-	},
+			gap: '48px'
+		}
+	}
 });
 
 export const MainPage: React.FC = () => {

@@ -36,7 +36,7 @@ const useStyles = makeStyles({
 	},
 	drawer: {
 		width: 250
-	},
+	}
 });
 
 interface MenuItem {

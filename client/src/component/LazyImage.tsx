@@ -39,7 +39,7 @@ export const LazyImage = ({ src, alt, className, variant = 'rectangular' }: Lazy
 			className={className} 
 			style={{ 
 				position: 'relative',
-				overflow: 'hidden',
+				overflow: 'hidden'
 			}}
 		>
 			{!isLoaded && (
@@ -50,7 +50,7 @@ export const LazyImage = ({ src, alt, className, variant = 'rectangular' }: Lazy
 					style={{ 
 						position: 'absolute', 
 						top: 0, 
-						left: 0,
+						left: 0
 					}}
 				/>
 			)}
@@ -65,7 +65,7 @@ export const LazyImage = ({ src, alt, className, variant = 'rectangular' }: Lazy
 						objectFit: 'cover',
 						opacity: isLoaded ? 1 : 0,
 						transition: 'opacity 0.3s ease-in-out',
-						borderRadius: isCircular ? '50%' : undefined,
+						borderRadius: isCircular ? '50%' : undefined
 					}}
 				/>
 			)}
