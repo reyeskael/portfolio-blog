@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Card, CardContent, CardMedia, Typography, IconButton, MobileStepper } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography, IconButton, MobileStepper, useMediaQuery, useTheme } from '@mui/material';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
 import { colorPalette } from '../utils/cosmeticsHelper';
@@ -40,6 +40,9 @@ const useStyles = makeStyles({
 		display: 'grid',
 		gridTemplateColumns: 'repeat(3, 1fr)',
 		gap: '24px',
+		'@media (max-width: 600px)': {
+			gridTemplateColumns: '1fr',
+		},
 	},
 	blogCard: {
 		height: '100%',
@@ -149,10 +152,17 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
 
 export const BlogList = () => {
 	const classes = useStyles();
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 	const [activeStep, setActiveStep] = useState(0);
 	const [isPaused, setIsPaused] = useState(false);
-	const blogChunks = chunkArray(blogPosts, 3);
+	const itemsPerSlide = isMobile ? 1 : 3;
+	const blogChunks = chunkArray(blogPosts, itemsPerSlide);
 	const maxSteps = blogChunks.length;
+
+	useEffect(() => {
+		setActiveStep(0);
+	}, [isMobile]);
 
 	useEffect(() => {
 		if (isPaused) return;
