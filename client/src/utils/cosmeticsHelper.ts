@@ -4,6 +4,7 @@ export const colorPalette = {
 	WHITE: "#FFFFFF",
 	PRIMARY: "#404258",
 	SECONDARY: "#F5DEB3",
+	TERTIARY: "#F5F5F5",
 	INFO: "#6B728E"
 };
 

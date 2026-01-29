@@ -67,7 +67,7 @@ export const Header = ({ title, menuItems }: HeaderProps) => {
 	};
 
 	return (
-		<AppBar position="static">
+		<AppBar position="fixed">
 			<Toolbar className={classes.toolBar}>
 				<Box className={classes.container}>
 					<Typography variant="h6">

@@ -40,6 +40,7 @@ const useStyles = makeStyles({
 		display: 'grid',
 		gridTemplateColumns: 'repeat(3, 1fr)',
 		gap: '24px',
+		padding: '8px 0',
 		'@media (max-width: 600px)': {
 			gridTemplateColumns: '1fr',
 		},
@@ -86,8 +87,10 @@ const useStyles = makeStyles({
 		color: colorPalette.PRIMARY,
 	},
 	stepper: {
-		background: 'transparent',
 		justifyContent: 'center',
+        '&&': {
+            backgroundColor: colorPalette.TERTIARY,
+        },
 		'& .MuiMobileStepper-dot': {
 			backgroundColor: colorPalette.INFO,
 		},
