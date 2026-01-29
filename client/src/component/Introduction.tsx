@@ -1,6 +1,7 @@
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { colorPalette } from '../utils/cosmeticsHelper';
+import { LazyImage } from './LazyImage';
 import ProfilePicture from '../assets/profile/small/ProfilePicture.png';
 
 const useStyles = makeStyles({
@@ -68,10 +69,11 @@ export const Introduction = () => {
 	return (
 		<Box className={isMobile ? classes.introSectionMobile : classes.introSection}>
 			{isMobile && (
-				<img
+				<LazyImage
 					src={ProfilePicture}
 					alt="Michael Reyes"
 					className={classes.profilePictureMobile}
+					variant="circular"
 				/>
 			)}
 			<Box className={isMobile ? classes.introContentMobile : classes.introContent}>
@@ -90,10 +92,11 @@ export const Introduction = () => {
 				</Box>
 			</Box>
 			{!isMobile && (
-				<img
+				<LazyImage
 					src={ProfilePicture}
 					alt="Michael Reyes"
 					className={classes.profilePicture}
+					variant="circular"
 				/>
 			)}
 		</Box>

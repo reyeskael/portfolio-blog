@@ -1,9 +1,6 @@
 import { Box, Container } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { Introduction } from '../component/Introduction';
-import { TechStack } from '../component/TechStack';
-import { BlogList } from '../component/BlogList';
-import { WorkExperience } from '../component/WorkExperience';
+import { Introduction, TechStack, BlogList, WorkExperience } from '../component';
 import { colorPalette } from '../utils';
 
 const useStyles = makeStyles({

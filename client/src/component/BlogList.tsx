@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Box, Card, CardContent, CardMedia, Typography, IconButton, MobileStepper, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Card, CardContent, Typography, IconButton, MobileStepper, useMediaQuery, useTheme } from '@mui/material';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
 import { colorPalette } from '../utils/cosmeticsHelper';
+import { LazyImage } from './';
 
 import SagadaThumbnail from '../assets/blog/sagada/small/Sagada.jpg';
 import PulagThumbnail from '../assets/blog/pulag/small/Pulag.jpg';
@@ -81,7 +82,6 @@ const useStyles = makeStyles({
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
-		marginTop: '16px',
 	},
 	navButton: {
 		color: colorPalette.PRIMARY,
@@ -214,9 +214,8 @@ export const BlogList = () => {
 										onMouseEnter={handleMouseEnter}
 										onMouseLeave={handleMouseLeave}
 									>
-										<CardMedia
-											component="img"
-											image={post.thumbnail}
+										<LazyImage
+											src={post.thumbnail}
 											alt={post.title}
 											className={classes.blogThumbnail}
 										/>
