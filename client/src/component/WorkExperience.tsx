@@ -2,10 +2,12 @@ import { Box, Card, CardContent, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { colorPalette } from '../utils/cosmeticsHelper';
 
-import PenbrothersLogo from '../assets/company/small/Penbrothers.png';
-import MPHLogo from '../assets/company/small/MPH.png';
-import AccentureLogo from '../assets/company/small/Accenture.png';
-import SqreemLogo from '../assets/company/small/SQREEM.jpeg';
+import { S3_BASE_URL } from '../constant';
+
+const PenbrothersLogo = `${S3_BASE_URL}/company/small/Penbrothers.png`;
+const MPHLogo = `${S3_BASE_URL}/company/small/MPH.png`;
+const AccentureLogo = `${S3_BASE_URL}/company/small/Accenture.png`;
+const SqreemLogo = `${S3_BASE_URL}/company/small/SQREEM.jpeg`;
 
 const useStyles = makeStyles({
     container: {

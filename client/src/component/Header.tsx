@@ -12,7 +12,7 @@ import {
 	ListItemButton,
 	ListItemText,
 	useMediaQuery,
-	useTheme,
+	useTheme
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { makeStyles } from '@mui/styles';

@@ -5,12 +5,14 @@ import { makeStyles } from '@mui/styles';
 import { colorPalette } from '../utils/cosmeticsHelper';
 import { LazyImage } from './';
 
-import SagadaThumbnail from '../assets/blog/sagada/small/Sagada.jpg';
-import PulagThumbnail from '../assets/blog/pulag/small/Pulag.jpg';
-import TreePlantingThumbnail from '../assets/blog/tree-planting-puray/small/TreePlantingPuray.jpg';
-import BuscalanThumbnail from '../assets/blog/buscalan/small/ApoWhangOd.jpg';
-import TaiwanThumbnail from '../assets/blog/taiwan/small/JiufenTaiwan.jpg';
-import MMAGymThumbnail from '../assets/blog/boxing-and-muay-thai/small/MMAGym.jpg';
+import { S3_BASE_URL } from '../constant';
+
+const SagadaThumbnail = `${S3_BASE_URL}/blog/sagada/small/Sagada.jpg`;
+const PulagThumbnail = `${S3_BASE_URL}/blog/pulag/small/Pulag.jpg`;
+const TreePlantingThumbnail = `${S3_BASE_URL}/blog/tree-planting-puray/small/TreePlantingPuray.jpg`;
+const BuscalanThumbnail = `${S3_BASE_URL}/blog/buscalan/small/ApoWhangOd.jpg`;
+const TaiwanThumbnail = `${S3_BASE_URL}/blog/taiwan/small/JiufenTaiwan.jpg`;
+const MMAGymThumbnail = `${S3_BASE_URL}/blog/boxing-and-muay-thai/small/MMAGym.jpg`;
 
 const useStyles = makeStyles({
     container: {
