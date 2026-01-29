@@ -1,7 +1,7 @@
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { colorPalette } from '../utils/cosmeticsHelper';
-import ProfilePicture from '../assets/ProfilePicture.png';
+import ProfilePicture from '../assets/profile/small/ProfilePicture.png';
 
 const useStyles = makeStyles({
 	introSection: {

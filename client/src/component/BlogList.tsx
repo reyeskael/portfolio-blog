@@ -2,9 +2,9 @@ import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { colorPalette } from '../utils/cosmeticsHelper';
 
-import SagadaThumbnail from '../assets/blog/sagada/Sagada.jpg';
-import TaiwanThumbnail from '../assets/blog/taiwan/JiufenTaiwan.jpg';
-import MMAGymThumbnail from '../assets/blog/boxing-and-muay-thai/MMAGym.jpg';
+import SagadaThumbnail from '../assets/blog/sagada/small/Sagada.jpg';
+import TaiwanThumbnail from '../assets/blog/taiwan/small/JiufenTaiwan.jpg';
+import MMAGymThumbnail from '../assets/blog/boxing-and-muay-thai/small/MMAGym.jpg';
 
 const useStyles = makeStyles({
 	sectionTitle: {
@@ -61,17 +61,17 @@ const blogPosts = [
 	},
 	{
 		id: 2,
-		title: 'First International Trip: Exploring Taiwan',
-		date: 'November 2024',
-		thumbnail: TaiwanThumbnail,
-		excerpt: 'My first international travel experience with my girlfriend took us to Taiwan. We explored famous tourist spots in Taipei, indulged in local cuisine and street food delights. Our first day was a DIY adventure, while the second and third days were guided tours booked through Klook, giving us the perfect mix of spontaneity and convenience.',
-	},
-	{
-		id: 3,
-		title: 'Starting My Fitness Journey: Boxing & Muay Thai',
+        title: 'Starting My Fitness Journey: Boxing & Muay Thai',
 		date: 'March 2025',
 		thumbnail: MMAGymThumbnail,
 		excerpt: 'As a software engineer, sitting for the majority of my day became the norm. To break this sedentary lifestyle, I enrolled in an MMA gym to learn boxing and muay thai. Beyond staying active, training has become my outlet for releasing stress and clearing my mind. It\'s been an incredible journey of discipline, physical growth, and mental resilience.',
+	},
+	{
+		id: 3,
+		title: 'First International Trip: Exploring Taiwan',
+		date: 'November 2025',
+		thumbnail: TaiwanThumbnail,
+		excerpt: 'My first international travel experience with my girlfriend took us to Taiwan. We explored famous tourist spots in Taipei, indulged in local cuisine and street food delights. Our first day was a DIY adventure, while the second and third days were guided tours booked through Klook, giving us the perfect mix of spontaneity and convenience.',
 	},
 ];
 
