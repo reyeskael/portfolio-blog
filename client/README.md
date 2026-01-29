@@ -48,3 +48,7 @@ The application uses a custom MUI theme defined in `src/utils/cosmeticsHelper.ts
 
 - **Header**: Application header with navigation menu
 - **Footer**: Footer with social media links (LinkedIn, GitHub, Instagram, Facebook)
+
+## Credits
+
+- Tech stack icons are downloaded from [TechIcons.dev](https://techicons.dev/)

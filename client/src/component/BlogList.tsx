@@ -150,16 +150,27 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
 export const BlogList = () => {
 	const classes = useStyles();
 	const [activeStep, setActiveStep] = useState(0);
+	const [isPaused, setIsPaused] = useState(false);
 	const blogChunks = chunkArray(blogPosts, 3);
 	const maxSteps = blogChunks.length;
 
 	useEffect(() => {
+		if (isPaused) return;
+
 		const timer = setInterval(() => {
 			setActiveStep((prevStep) => (prevStep + 1) % maxSteps);
 		}, 5000);
 
 		return () => clearInterval(timer);
-	}, [maxSteps]);
+	}, [maxSteps, isPaused]);
+
+	const handleMouseEnter = () => {
+		setIsPaused(true);
+	};
+
+	const handleMouseLeave = () => {
+		setIsPaused(false);
+	};
 
 	const handleNext = () => {
 		setActiveStep((prevStep) => (prevStep + 1) % maxSteps);
@@ -183,7 +194,13 @@ export const BlogList = () => {
 						<Box key={index} className={classes.carouselSlide}>
 							<Box className={classes.slideContent}>
 								{chunk.map((post) => (
-									<Card key={post.id} className={classes.blogCard} elevation={2}>
+									<Card 
+										key={post.id} 
+										className={classes.blogCard} 
+										elevation={2}
+										onMouseEnter={handleMouseEnter}
+										onMouseLeave={handleMouseLeave}
+									>
 										<CardMedia
 											component="img"
 											image={post.thumbnail}
