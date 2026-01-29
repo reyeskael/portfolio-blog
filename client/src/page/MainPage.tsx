@@ -2,6 +2,7 @@ import { Container } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Introduction } from '../component/Introduction';
 import { TechStack } from '../component/TechStack';
+import { BlogList } from '../component/BlogList';
 import { WorkExperience } from '../component/WorkExperience';
 
 const useStyles = makeStyles({
@@ -22,6 +23,7 @@ export const MainPage: React.FC = () => {
 		<Container className={classes.container}>
 			<Introduction />
 			<TechStack />
+			<BlogList />
 			<WorkExperience />
 		</Container>
 	);
