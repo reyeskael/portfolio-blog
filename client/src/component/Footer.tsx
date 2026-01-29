@@ -42,7 +42,7 @@ export const Footer = ({
 	const classes = useStyles();
 
 	return (
-		<Box component="footer" className={classes.footer}>
+		<Box id="contact" component="footer" className={classes.footer}>
 			<Typography variant="h6">Michael Reyes, Web Developer</Typography>
 			<Box className={classes.socialLinks}>
 				<IconButton

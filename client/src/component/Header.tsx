@@ -42,6 +42,7 @@ const useStyles = makeStyles({
 interface MenuItem {
 	text: string;
 	link: string;
+	sectionId: string;
 }
 interface HeaderProps {
 	title: string;
@@ -56,6 +57,13 @@ export const Header = ({ title, menuItems }: HeaderProps) => {
 
 	const toggleDrawer = (open: boolean) => () => {
 		setDrawerOpen(open);
+	};
+
+	const handleScrollToSection = (sectionId: string) => {
+		const element = document.getElementById(sectionId);
+		if (element) {
+			element.scrollIntoView({ behavior: 'smooth' });
+		}
 	};
 
 	return (
@@ -87,7 +95,7 @@ export const Header = ({ title, menuItems }: HeaderProps) => {
 									<List>
 										{menuItems.map((item) => (
 											<ListItem key={item.text} disablePadding>
-												<ListItemButton>
+												<ListItemButton onClick={() => handleScrollToSection(item.sectionId)}>
 													<ListItemText primary={item.text} />
 												</ListItemButton>
 											</ListItem>
@@ -99,7 +107,12 @@ export const Header = ({ title, menuItems }: HeaderProps) => {
 					) : (
 						<Box>
 							{menuItems.map((item) => (
-								<Button variant="text" color="secondary" key={item.text}>
+								<Button 
+									variant="text" 
+									color="secondary" 
+									key={item.text}
+									onClick={() => handleScrollToSection(item.sectionId)}
+								>
 									{item.text}
 								</Button>
 							))}

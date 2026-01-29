@@ -20,7 +20,7 @@ export const MainPage: React.FC = () => {
 	const classes = useStyles();
 
 	return (
-		<Container className={classes.container}>
+		<Container id="home" className={classes.container}>
 			<Introduction />
 			<TechStack />
 			<BlogList />

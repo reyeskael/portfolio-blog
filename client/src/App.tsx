@@ -12,10 +12,10 @@ import rootReducer from './reducer';
 const store = createStore(rootReducer);
 
 const menuItems = [
-	{text: 'Home', link: '/'},
-	{text: 'Blog', link: '/blog'},
-	{text: 'Work', link: '/work'},
-	{text: 'About', link: '/about'}
+	{text: 'Home', link: '/', sectionId: 'home'},
+	{text: 'Blog', link: '/blog', sectionId: 'blog'},
+	{text: 'Work', link: '/work', sectionId: 'work'},
+	{text: 'Contact', link: '/contact', sectionId: 'contact'}
 ];
 
 const App: React.FC = () => {

@@ -170,7 +170,7 @@ export const BlogList = () => {
 	};
 
 	return (
-		<Box className={classes.container}>
+		<Box className={classes.container} id="blog">
 			<Typography variant="h4" className={classes.sectionTitle}>
 				Blog
 			</Typography>

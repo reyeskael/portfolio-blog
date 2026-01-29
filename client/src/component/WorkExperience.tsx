@@ -141,7 +141,7 @@ export const WorkExperience = () => {
 	const classes = useStyles();
 
 	return (
-		<Box className={classes.container}>
+		<Box className={classes.container} id="work">
 			<Typography variant="h4" className={classes.sectionTitle}>
 				Work Experience
 			</Typography>
