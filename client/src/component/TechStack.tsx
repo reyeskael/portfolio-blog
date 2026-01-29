@@ -10,6 +10,11 @@ import HTML5Icon from '../assets/icons/HTML5.svg';
 import MongoDBIcon from '../assets/icons/MongoDB.svg';
 
 const useStyles = makeStyles({
+    container: {
+        gap: '10px',
+        display: 'flex',
+        flexDirection: 'column',
+    },
 	title: {
 		color: colorPalette.PRIMARY,
 		textAlign: 'center',
@@ -65,7 +70,7 @@ export const TechStack = () => {
 	const classes = useStyles();
 
 	return (
-		<Box>
+		<Box className={classes.container}>
 			<Typography variant="h4" className={classes.title}>
 				Tech Stack
 			</Typography>

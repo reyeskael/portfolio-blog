@@ -8,6 +8,11 @@ import AccentureLogo from '../assets/company/small/Accenture.png';
 import SqreemLogo from '../assets/company/small/SQREEM.jpeg';
 
 const useStyles = makeStyles({
+    container: {
+        gap: '10px',
+        display: 'flex',
+        flexDirection: 'column',
+    },
 	sectionTitle: {
 		color: colorPalette.PRIMARY,
 		textAlign: 'center',
@@ -136,7 +141,7 @@ export const WorkExperience = () => {
 	const classes = useStyles();
 
 	return (
-		<Box>
+		<Box className={classes.container}>
 			<Typography variant="h4" className={classes.sectionTitle}>
 				Work Experience
 			</Typography>

@@ -10,7 +10,7 @@ const useStyles = makeStyles({
 		'&&': {
 			display: 'flex',
 			flexDirection: 'column',
-			maxWidth: '1000px',
+			maxWidth: '1100px',
 			gap: '48px',
 		},
 	},
