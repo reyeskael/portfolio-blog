@@ -37,7 +37,7 @@ export const Footer = ({
 	githubUrl = 'https://github.com/reyeskael',
 	instagramUrl = 'https://www.instagram.com/mchlrys.tsx',
 	facebookUrl = 'https://www.facebook.com/mchlrys.tsx',
-	email = 'michaelreyes0202@gmail.com',
+	email = 'michaelreyes0202@gmail.com'
 }: FooterProps) => {
 	const classes = useStyles();
 
