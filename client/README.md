@@ -2,7 +2,7 @@
 
 A React-based portfolio and blog application built with Material-UI, featuring a personal introduction, tech stack showcase, blog carousel, and work experience timeline.
 
-**Live Demo**: [http://portfolio-blog-michael.s3.ap-southeast-2.amazonaws.com](http://portfolio-blog-michael.s3.ap-southeast-2.amazonaws.com)
+**Live Demo**: [http://portfolio-blog-michael.s3-website-ap-southeast-2.amazonaws.com](http://portfolio-blog-michael.s3-website-ap-southeast-2.amazonaws.com)
 
 ## Tech Stack
 
