@@ -25,27 +25,32 @@ const useStyles = makeStyles({
 interface SocialLink {
 	name: string;
 	url: string;
+	target?: string;
 	icon: string;
 }
 
 const socialLinks: SocialLink[] = [
 	{
 		name: 'LinkedIn',
+		target: '_blank',
 		url: 'https://www.linkedin.com/in/michael-reyes-b41801194/',
 		icon: `${S3_BASE_URL}/footer-icons/LinkedIn.svg`
 	},
 	{
 		name: 'GitHub',
+		target: '_blank',
 		url: 'https://github.com/reyeskael',
 		icon: `${S3_BASE_URL}/footer-icons/GitHub.svg`
 	},
 	{
 		name: 'Instagram',
+		target: '_blank',
 		url: 'https://www.instagram.com/mchlrys.tsx',
 		icon: `${S3_BASE_URL}/footer-icons/Instagram.svg`
 	},
 	{
 		name: 'Facebook',
+		target: '_blank',
 		url: 'https://www.facebook.com/mchlrys.tsx',
 		icon: `${S3_BASE_URL}/footer-icons/Facebook.svg`
 	},
@@ -67,7 +72,7 @@ export const Footer = () => {
 					<IconButton
 						key={link.name}
 						href={link.url}
-						target={link.name !== 'Email' ? '_blank' : undefined}
+						target={link.target}
 						aria-label={link.name}
 					>
 						<img src={link.icon} alt={link.name} className={classes.icon} />
