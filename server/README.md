@@ -24,13 +24,102 @@ src/
 
 ## API Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/profile` | GET | Returns profile/introduction data |
-| `/api/tech-stack` | GET | Returns tech stack items |
-| `/api/work-experience` | GET | Returns work experience history |
-| `/api/blog-posts` | GET | Returns blog post entries |
-| `/api/footer` | GET | Returns footer and social links data |
+### GET `/api/profile`
+
+Returns profile/introduction data.
+
+**Response:**
+```json
+{
+    "name": "string",
+    "greeting": "string",
+    "title": "string",
+    "description": "string",
+    "profilePicture": "string"
+}
+```
+
+### GET `/api/tech-stack`
+
+Returns tech stack items.
+
+**Response:**
+```json
+{
+    "title": "string",
+    "techStack": [
+        {
+            "name": "string",
+            "icon": "string"
+        }
+    ]
+}
+```
+
+### GET `/api/work-experience`
+
+Returns work experience history.
+
+**Response:**
+```json
+{
+    "title": "string",
+    "workExperience": [
+        {
+            "company": "string",
+            "logo": "string",
+            "totalDuration": "string",
+            "roles": [
+                {
+                    "jobTitle": "string",
+                    "duration": "string",
+                    "description": "string"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### GET `/api/blog-posts`
+
+Returns blog post entries.
+
+**Response:**
+```json
+{
+    "title": "string",
+    "blogPosts": [
+        {
+            "id": "number",
+            "title": "string",
+            "date": "string",
+            "thumbnail": "string",
+            "excerpt": "string"
+        }
+    ]
+}
+```
+
+### GET `/api/footer`
+
+Returns footer and social links data.
+
+**Response:**
+```json
+{
+    "title": "string",
+    "copyright": "string",
+    "socialLinks": [
+        {
+            "name": "string",
+            "url": "string",
+            "icon": "string",
+            "target": "string (optional)"
+        }
+    ]
+}
+```
 
 ## Available Scripts
 
