@@ -1,26 +1,9 @@
 import { Box, Container } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import { Introduction, TechStack, BlogList, WorkExperience } from '../component';
-import { colorPalette } from '../utils';
-
-const useStyles = makeStyles({
-	page: {
-		backgroundColor: colorPalette.TERTIARY,
-		minHeight: '100vh',
-		paddingTop: '64px'
-	},
-	container: {
-		'&&': {
-			display: 'flex',
-			flexDirection: 'column',
-			maxWidth: '1100px',
-			gap: '48px'
-		}
-	}
-});
+import { usePageStyles } from '../styles';
 
 export const MainPage: React.FC = () => {
-	const classes = useStyles();
+	const classes = usePageStyles();
 
 	return (
 		<Box id="home" className={classes.page}>
