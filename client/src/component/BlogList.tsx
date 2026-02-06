@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Card, CardContent, Typography, IconButton, MobileStepper, useMediaQuery, useTheme } from '@mui/material';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';

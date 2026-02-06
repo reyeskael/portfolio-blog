@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
 import techStack from './data/techStack.json';
 import workExperience from './data/workExperience.json';
 import profile from './data/profile.json';
@@ -30,6 +32,18 @@ app.get('/api/profile', (req: Request, res: Response) => {
 
 app.get('/api/blog-posts', (req: Request, res: Response) => {
     res.json(blogPosts);
+});
+
+app.get('/api/blog-page/:id', (req: Request, res: Response) => {
+    const { id } = req.params;
+    const filePath = path.join(__dirname, 'data', 'blogPages', `${id}.json`);
+    
+    if (fs.existsSync(filePath)) {
+        const blogPage = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+        res.json(blogPage);
+    } else {
+        res.status(404).json({ error: 'Blog page not found' });
+    }
 });
 
 app.get('/api/footer', (req: Request, res: Response) => {

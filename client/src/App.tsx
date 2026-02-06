@@ -25,7 +25,7 @@ const App: React.FC = () => {
 				<Header title="Michael Reyes" menuItems={menuItems} />
 				<Routes>
 					<Route path="/" element={<MainPage/>} />
-					<Route path="/blog" element={<BlogPage/>} />
+					<Route path="/blog/:id" element={<BlogPage/>} />
 				</Routes>
 				<Footer />
 			</ThemeProvider>
