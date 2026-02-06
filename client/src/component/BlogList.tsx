@@ -2,17 +2,18 @@ import { useState, useEffect } from 'react';
 import { Box, Card, CardContent, Typography, IconButton, MobileStepper, useMediaQuery, useTheme } from '@mui/material';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
+import axios from 'axios';
 import { colorPalette } from '../utils/cosmeticsHelper';
 import { LazyImage } from './';
+import { S3_BASE_URL, API_BASE_URL } from '../constant';
 
-import { S3_BASE_URL } from '../constant';
-
-const SagadaThumbnail = `${S3_BASE_URL}/blog/sagada/small/Sagada.jpg`;
-const PulagThumbnail = `${S3_BASE_URL}/blog/pulag/small/Pulag.jpg`;
-const TreePlantingThumbnail = `${S3_BASE_URL}/blog/tree-planting-puray/small/TreePlantingPuray.jpg`;
-const BuscalanThumbnail = `${S3_BASE_URL}/blog/buscalan/small/ApoWhangOd.jpg`;
-const TaiwanThumbnail = `${S3_BASE_URL}/blog/taiwan/small/JiufenTaiwan.jpg`;
-const MMAGymThumbnail = `${S3_BASE_URL}/blog/boxing-and-muay-thai/small/MMAGym.jpg`;
+interface BlogPost {
+	id: number;
+	title: string;
+	date: string;
+	thumbnail: string;
+	excerpt: string;
+}
 
 const useStyles = makeStyles({
     container: {
@@ -102,51 +103,6 @@ const useStyles = makeStyles({
 	}
 });
 
-const blogPosts = [
-	{
-		id: 1,
-		title: 'First International Trip: Exploring Taiwan',
-		date: 'November 2025',
-		thumbnail: TaiwanThumbnail,
-		excerpt: 'My first international travel experience with my girlfriend took us to Taiwan. We explored famous tourist spots in Taipei, indulged in local cuisine and street food delights. Our first day was a DIY adventure, while the second and third days were guided tours booked through Klook, giving us the perfect mix of spontaneity and convenience.'
-	},
-	{
-		id: 2,
-		title: 'Starting My Fitness Journey: Boxing & Muay Thai',
-		date: 'March 2025',
-		thumbnail: MMAGymThumbnail,
-		excerpt: 'As a software engineer, sitting for the majority of my day became the norm. To break this sedentary lifestyle, I enrolled in an MMA gym to learn boxing and muay thai. Beyond staying active, training has become my outlet for releasing stress and clearing my mind. It\'s been an incredible journey of discipline, physical growth, and mental resilience.'
-	},
-	{
-		id: 3,
-		title: 'I Got Inked by Apo Whang-od',
-		date: 'November 2024',
-		thumbnail: BuscalanThumbnail,
-		excerpt: 'A memorable journey with my girlfriend to Buscalan, a small mountain village home to the Butbut tribe. We immersed ourselves in their rich culture and had the once-in-a-lifetime experience of getting tattooed by the legendary Apo Whang-od, the oldest traditional tattoo artist in the Philippines. A trip that left a permanent mark, both on our skin and in our hearts.'
-	},
-	{
-		id: 4,
-		title: 'Planting Trees for Mother Nature',
-		date: 'October 2024',
-		thumbnail: TreePlantingThumbnail,
-		excerpt: 'Volunteering to plant trees in Puray, Rodriguez, Rizal with my girlfriend and our environmental group NSMN (Newborn Steward for Mother Nature). As an advocate for saving our nature, this wasn\'t my first tree planting activity, but every opportunity to give back to the environment is meaningful. It\'s always fulfilling to contribute to reforestation and inspire others to care for our planet.'
-	},
-	{
-		id: 5,
-		title: 'Playground of the Gods',
-		date: 'April 2023',
-		thumbnail: PulagThumbnail,
-		excerpt: 'Hiking Mount Pulag with my girlfriend - a beginner-friendly mountain that the 18KM trek makes harder than it seems. We started our adventure at 1AM and reached the summit around 9AM. The exhausting climb was absolutely worth it when we witnessed the breathtaking view from the top, standing among the clouds in the Philippines\' third highest peak.'
-	},
-	{
-		id: 6,
-		title: 'My First Solo Travel: Sagada Adventure',
-		date: 'August 2022',
-		thumbnail: SagadaThumbnail,
-		excerpt: 'Embarking on my first solo adventure to Sagada, I booked everything myself - transportation, hotel, and tours. With little prior knowledge of what to expect, I explored this mountain province blindly, discovering its breathtaking caves, hanging coffins, and stunning sunrise views. A DIY trip that taught me independence and the joy of spontaneous exploration.'
-	}
-];
-
 const chunkArray = <T,>(array: T[], size: number): T[][] => {
 	const chunks: T[][] = [];
 	for (let i = 0; i < array.length; i += size) {
@@ -161,9 +117,20 @@ export const BlogList = () => {
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 	const [activeStep, setActiveStep] = useState(0);
 	const [isPaused, setIsPaused] = useState(false);
+	const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
 	const itemsPerSlide = isMobile ? 1 : 3;
 	const blogChunks = chunkArray(blogPosts, itemsPerSlide);
 	const maxSteps = blogChunks.length;
+	const [title, setTitle] = useState<string>('');
+
+	useEffect(() => {
+		axios.get(`${API_BASE_URL}/api/blog-posts`)
+			.then(response => {
+				setBlogPosts(response.data.blogPosts);
+				setTitle(response.data.title);
+			})
+			.catch(error => console.error('Error fetching blog posts:', error));
+	}, []);
 
 	useEffect(() => {
 		setActiveStep(0);
@@ -198,7 +165,7 @@ export const BlogList = () => {
 	return (
 		<Box className={classes.container} id="blog">
 			<Typography variant="h4" className={classes.sectionTitle}>
-				Blog
+				{title}
 			</Typography>
 			<Box className={classes.carouselContainer}>
 				<Box
@@ -217,7 +184,7 @@ export const BlogList = () => {
 										onMouseLeave={handleMouseLeave}
 									>
 										<LazyImage
-											src={post.thumbnail}
+											src={`${S3_BASE_URL}/${post.thumbnail}`}
 											alt={post.title}
 											className={classes.blogThumbnail}
 										/>
