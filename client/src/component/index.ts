@@ -4,5 +4,6 @@ export * from './Header';
 export * from './Introduction';
 export * from './LazyImage';
 export * from './MarkdownRenderer';
+export * from './RichTextEditor';
 export * from './TechStack';
 export * from './WorkExperience';

@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { colorPalette } from '../utils/cosmeticsHelper';
 
 const useStyles = makeStyles({
@@ -55,6 +56,28 @@ const useStyles = makeStyles({
 			maxWidth: '100%',
 			height: 'auto',
 			borderRadius: '8px'
+		},
+		'& table': {
+			borderCollapse: 'collapse',
+			width: '100%',
+			margin: '16px 0',
+			overflow: 'hidden'
+		},
+		'& th, & td': {
+			border: `1px solid ${colorPalette.INFO}50`,
+			padding: '10px 14px',
+			textAlign: 'left'
+		},
+		'& th': {
+			backgroundColor: `${colorPalette.PRIMARY}10`,
+			fontWeight: 'bold',
+			color: colorPalette.PRIMARY
+		},
+		'& td': {
+			color: colorPalette.INFO
+		},
+		'& tr:nth-child(even)': {
+			backgroundColor: `${colorPalette.TERTIARY}`
 		}
 	}
 });
@@ -69,7 +92,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
 
 	return (
 		<Box className={`${classes.markdownContent} ${className || ''}`}>
-			<Markdown>{content}</Markdown>
+			<Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
 		</Box>
 	);
 };
