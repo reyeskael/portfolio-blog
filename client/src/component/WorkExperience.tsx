@@ -1,5 +1,6 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import classNames from 'classnames';
 import { colorPalette } from '../utils/cosmeticsHelper';
 
 import { S3_BASE_URL } from '../constant';
@@ -166,7 +167,7 @@ export const WorkExperience = () => {
 							</Box>
 						</Box>
 						{experience.roles.map((role, roleIndex) => (
-							<Box key={roleIndex} className={roleIndex > 0 ? classes.roleSection : undefined}>
+							<Box key={roleIndex} className={classNames({ [classes.roleSection]: roleIndex > 0 })}>
 								<Box className={classes.experienceHeader}>
 									<Typography variant="subtitle1" className={classes.jobTitle}>
 										{role.jobTitle}

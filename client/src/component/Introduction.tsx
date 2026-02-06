@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import classNames from 'classnames';
 import { colorPalette } from '../utils/cosmeticsHelper';
 import { LazyImage } from './LazyImage';
 import { S3_BASE_URL } from '../constant';
@@ -135,9 +136,15 @@ export const Introduction = () => {
 	}, []);
 
 	return (
-		<Box className={isMobile ? classes.introSectionMobile : classes.introSection}>
+		<Box className={classNames({
+			[classes.introSectionMobile]: isMobile,
+			[classes.introSection]: !isMobile
+		})}>
 			{isMobile && (
-				<Box className={isVisible ? classes.profilePictureWrapperMobileAnimated : classes.profilePictureWrapperMobile}>
+				<Box className={classNames({
+					[classes.profilePictureWrapperMobileAnimated]: isVisible,
+					[classes.profilePictureWrapperMobile]: !isVisible
+				})}>
 					<LazyImage
 						src={ProfilePicture}
 						alt="Michael Reyes"
@@ -146,17 +153,22 @@ export const Introduction = () => {
 					/>
 				</Box>
 			)}
-			<Box className={isMobile 
-				? (isVisible ? classes.introContentMobileAnimated : classes.introContentMobile)
-				: (isVisible ? classes.introContentAnimated : classes.introContent)
-			}>
+			<Box className={classNames({
+				[classes.introContentMobileAnimated]: isMobile && isVisible,
+				[classes.introContentMobile]: isMobile && !isVisible,
+				[classes.introContentAnimated]: !isMobile && isVisible,
+				[classes.introContent]: !isMobile && !isVisible
+			})}>
 				<Typography variant="h5" className={classes.greeting}>
 					Hello, I'm
 				</Typography>
 				<Typography variant={isMobile ? 'h3' : 'h2'} className={classes.name}>
 					Michael Reyes
 				</Typography>
-				<Box className={isMobile ? classes.descriptionWrapperMobile : classes.descriptionWrapper}>
+				<Box className={classNames({
+					[classes.descriptionWrapperMobile]: isMobile,
+					[classes.descriptionWrapper]: !isMobile
+				})}>
 					<Typography variant="body1" className={classes.description}>
 						A software engineer with over 7 years of experience building modern web applications. 
 						Specialized in full-stack development using React, Node.js, TypeScript, and cloud 
@@ -165,7 +177,10 @@ export const Introduction = () => {
 				</Box>
 			</Box>
 			{!isMobile && (
-				<Box className={isVisible ? classes.profilePictureWrapperAnimated : classes.profilePictureWrapper}>
+				<Box className={classNames({
+					[classes.profilePictureWrapperAnimated]: isVisible,
+					[classes.profilePictureWrapper]: !isVisible
+				})}>
 					<LazyImage
 						src={ProfilePicture}
 						alt="Michael Reyes"
