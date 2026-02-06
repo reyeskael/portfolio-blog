@@ -1,8 +1,11 @@
-[
-  { "name": "React", "icon": "icons/React.svg" },
-  { "name": "Node.js", "icon": "icons/Node.js.svg" },
-  { "name": "JavaScript", "icon": "icons/JavaScript.svg" },
-  { "name": "TypeScript", "icon": "icons/TypeScript.svg" },
-  { "name": "HTML5", "icon": "icons/HTML5.svg" },
-  { "name": "MongoDB", "icon": "icons/MongoDB.svg" }
-]
+{
+	"title": "Tech Stack",
+	"techStack": [
+		{ "name": "React", "icon": "icons/React.svg" },
+		{ "name": "Node.js", "icon": "icons/Node.js.svg" },
+		{ "name": "JavaScript", "icon": "icons/JavaScript.svg" },
+		{ "name": "TypeScript", "icon": "icons/TypeScript.svg" },
+		{ "name": "HTML5", "icon": "icons/HTML5.svg" },
+		{ "name": "MongoDB", "icon": "icons/MongoDB.svg" }
+	]
+}

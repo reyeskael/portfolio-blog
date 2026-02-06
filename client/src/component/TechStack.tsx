@@ -1,15 +1,14 @@
+import { useState, useEffect } from 'react';
 import { Box, Card, CardContent, Tooltip, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import axios from 'axios';
 import { colorPalette } from '../utils/cosmeticsHelper';
+import { S3_BASE_URL, API_BASE_URL } from '../constant';
 
-import { S3_BASE_URL } from '../constant';
-
-const ReactIcon = `${S3_BASE_URL}/icons/React.svg`;
-const NodeIcon = `${S3_BASE_URL}/icons/Node.js.svg`;
-const JavaScriptIcon = `${S3_BASE_URL}/icons/JavaScript.svg`;
-const TypeScriptIcon = `${S3_BASE_URL}/icons/TypeScript.svg`;
-const HTML5Icon = `${S3_BASE_URL}/icons/HTML5.svg`;
-const MongoDBIcon = `${S3_BASE_URL}/icons/MongoDB.svg`;
+interface TechStackItem {
+	name: string;
+	icon: string;
+}
 
 const useStyles = makeStyles({
 	'@keyframes fadeInUp': {
@@ -71,22 +70,24 @@ const useStyles = makeStyles({
 	}
 });
 
-const techStackItems = [
-	{ name: 'React', icon: ReactIcon },
-	{ name: 'Node.js', icon: NodeIcon },
-	{ name: 'JavaScript', icon: JavaScriptIcon },
-	{ name: 'TypeScript', icon: TypeScriptIcon },
-	{ name: 'HTML5', icon: HTML5Icon },
-	{ name: 'MongoDB', icon: MongoDBIcon }
-];
-
 export const TechStack = () => {
 	const classes = useStyles();
+	const [techStackItems, setTechStackItems] = useState<TechStackItem[]>([]);
+	const [title, setTitle] = useState<string>('');
+
+	useEffect(() => {
+		axios.get(`${API_BASE_URL}/api/tech-stack`)
+			.then(response => {
+				setTechStackItems(response.data.techStack);
+				setTitle(response.data.title);
+			})
+			.catch(error => console.error('Error fetching tech stack:', error));
+	}, []);
 
 	return (
 		<Box className={classes.container}>
 			<Typography variant="h4" className={classes.title}>
-				Tech Stack
+				{title}
 			</Typography>
 			<Box className={classes.techStack}>
 				{techStackItems.map((tech, index) => (
@@ -97,7 +98,7 @@ export const TechStack = () => {
 							style={{ animationDelay: `${index * 150}ms` }}
 						>
 							<CardContent className={classes.cardContent}>
-								<img src={tech.icon} alt={tech.name} className={classes.icon} />
+								<img src={`${S3_BASE_URL}/${tech.icon}`} alt={tech.name} className={classes.icon} />
 								<Typography className={classes.techLabel}>{tech.name}</Typography>
 							</CardContent>
 						</Card>
