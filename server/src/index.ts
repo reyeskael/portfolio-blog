@@ -1,6 +1,11 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import techStack from './data/techStack.json';
+import workExperience from './data/workExperience.json';
+import profile from './data/profile.json';
+import blogPosts from './data/blogPosts.json';
+import footer from './data/footer.json';
 
 dotenv.config();
 
@@ -11,9 +16,24 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Health check route
-app.get('/api/health', (req: Request, res: Response) => {
-    res.json({ status: 'OK', message: 'Server is running' });
+app.get('/api/tech-stack', (req: Request, res: Response) => {
+    res.json(techStack);
+});
+
+app.get('/api/work-experience', (req: Request, res: Response) => {
+    res.json(workExperience);
+});
+
+app.get('/api/profile', (req: Request, res: Response) => {
+    res.json(profile);
+});
+
+app.get('/api/blog-posts', (req: Request, res: Response) => {
+    res.json(blogPosts);
+});
+
+app.get('/api/footer', (req: Request, res: Response) => {
+    res.json(footer);
 });
 
 // Start server

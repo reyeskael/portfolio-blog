@@ -1,7 +1,9 @@
+import { useState, useEffect } from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import axios from 'axios';
 import { colorPalette } from '../utils/cosmeticsHelper';
-import { S3_BASE_URL } from '../constant';
+import { S3_BASE_URL, API_BASE_URL } from '../constant';
 
 const useStyles = makeStyles({
 	footer: {
@@ -29,44 +31,26 @@ interface SocialLink {
 	icon: string;
 }
 
-const socialLinks: SocialLink[] = [
-	{
-		name: 'LinkedIn',
-		target: '_blank',
-		url: 'https://www.linkedin.com/in/michael-reyes-b41801194/',
-		icon: `${S3_BASE_URL}/footer-icons/LinkedIn.svg`
-	},
-	{
-		name: 'GitHub',
-		target: '_blank',
-		url: 'https://github.com/reyeskael',
-		icon: `${S3_BASE_URL}/footer-icons/GitHub.svg`
-	},
-	{
-		name: 'Instagram',
-		target: '_blank',
-		url: 'https://www.instagram.com/mchlrys.tsx',
-		icon: `${S3_BASE_URL}/footer-icons/Instagram.svg`
-	},
-	{
-		name: 'Facebook',
-		target: '_blank',
-		url: 'https://www.facebook.com/mchlrys.tsx',
-		icon: `${S3_BASE_URL}/footer-icons/Facebook.svg`
-	},
-	{
-		name: 'Email',
-		url: 'mailto:michaelreyes0202@gmail.com',
-		icon: `${S3_BASE_URL}/footer-icons/Email.svg`
-	}
-];
-
 export const Footer = () => {
 	const classes = useStyles();
+	const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
+	const [title, setTitle] = useState<string>('');
+	const [copyright, setCopyright] = useState<string>('');
+
+	useEffect(() => {
+		axios.get(`${API_BASE_URL}/api/footer`)
+			.then(response => {
+				setSocialLinks(response.data.socialLinks);
+				setCopyright(response.data.copyright);
+				setTitle(response.data.title);
+			})
+			.catch(error => console.error('Error fetching footer:', error));
+	}, []);
+
 
 	return (
 		<Box id="contact" component="footer" className={classes.footer}>
-			<Typography variant="h6">Michael Reyes, Web Developer</Typography>
+			<Typography variant="h6">{title}</Typography>
 			<Box className={classes.socialLinks}>
 				{socialLinks.map((link) => (
 					<IconButton
@@ -75,11 +59,11 @@ export const Footer = () => {
 						target={link.target}
 						aria-label={link.name}
 					>
-						<img src={link.icon} alt={link.name} className={classes.icon} />
+						<img src={`${S3_BASE_URL}/${link.icon}`} alt={link.name} className={classes.icon} />
 					</IconButton>
 				))}
 			</Box>
-			<Typography variant="body2">© 2026 All rights reserved.</Typography>
+			<Typography variant="body2">{copyright}</Typography>
 		</Box>
 	);
 };

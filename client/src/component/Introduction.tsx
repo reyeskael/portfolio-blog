@@ -2,11 +2,18 @@ import { useState, useEffect } from 'react';
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import classNames from 'classnames';
+import axios from 'axios';
 import { colorPalette } from '../utils/cosmeticsHelper';
 import { LazyImage } from './LazyImage';
-import { S3_BASE_URL } from '../constant';
+import { S3_BASE_URL, API_BASE_URL } from '../constant';
 
-const ProfilePicture = `${S3_BASE_URL}/profile/small/ProfilePicture.png`;
+interface ProfileData {
+	name: string;
+	greeting: string;
+	title: string;
+	description: string;
+	profilePicture: string;
+}
 
 const useStyles = makeStyles({
 	'@keyframes slideInFromLeft': {
@@ -129,11 +136,20 @@ export const Introduction = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 	const [isVisible, setIsVisible] = useState(false);
+	const [profile, setProfile] = useState<ProfileData | null>(null);
+
+	useEffect(() => {
+		axios.get(`${API_BASE_URL}/api/profile`)
+			.then(response => setProfile(response.data))
+			.catch(error => console.error('Error fetching profile:', error));
+	}, []);
 
 	useEffect(() => {
 		const timer = setTimeout(() => setIsVisible(true), 100);
 		return () => clearTimeout(timer);
 	}, []);
+
+	if (!profile) return null;
 
 	return (
 		<Box className={classNames({
@@ -146,8 +162,8 @@ export const Introduction = () => {
 					[classes.profilePictureWrapperMobile]: !isVisible
 				})}>
 					<LazyImage
-						src={ProfilePicture}
-						alt="Michael Reyes"
+						src={`${S3_BASE_URL}/${profile.profilePicture}`}
+						alt={profile.name}
 						className={classes.profilePictureMobile}
 						variant="circular"
 					/>
@@ -160,19 +176,17 @@ export const Introduction = () => {
 				[classes.introContent]: !isMobile && !isVisible
 			})}>
 				<Typography variant="h5" className={classes.greeting}>
-					Hello, I'm
+					{profile.greeting}
 				</Typography>
 				<Typography variant={isMobile ? 'h3' : 'h2'} className={classes.name}>
-					Michael Reyes
+					{profile.name}
 				</Typography>
 				<Box className={classNames({
 					[classes.descriptionWrapperMobile]: isMobile,
 					[classes.descriptionWrapper]: !isMobile
 				})}>
 					<Typography variant="body1" className={classes.description}>
-						A software engineer with over 7 years of experience building modern web applications. 
-						Specialized in full-stack development using React, Node.js, TypeScript, and cloud 
-						technologies. Passionate about creating scalable, efficient, and user-friendly solutions.
+						{profile.description}
 					</Typography>
 				</Box>
 			</Box>
@@ -182,8 +196,8 @@ export const Introduction = () => {
 					[classes.profilePictureWrapper]: !isVisible
 				})}>
 					<LazyImage
-						src={ProfilePicture}
-						alt="Michael Reyes"
+						src={`${S3_BASE_URL}/${profile.profilePicture}`}
+						alt={profile.name}
 						className={classes.profilePicture}
 						variant="circular"
 					/>

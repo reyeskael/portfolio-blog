@@ -1,35 +1,35 @@
 {
-  "title": "Michael Reyes, Web Developer",
-  "copyright": "© 2026 All rights reserved.",
-  "socialLinks": [
-    {
-      "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/michael-reyes-b41801194/",
-      "icon": "footer-icons/LinkedIn.svg",
-      "target": "_blank"
-    },
-    {
-      "name": "GitHub",
-      "url": "https://github.com/reyeskael",
-      "icon": "footer-icons/GitHub.svg",
-      "target": "_blank"
-    },
-    {
-      "name": "Instagram",
-      "url": "https://www.instagram.com/mchlrys.tsx",
-      "icon": "footer-icons/Instagram.svg",
-      "target": "_blank"
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/mchlrys.tsx",
-      "icon": "footer-icons/Facebook.svg",
-      "target": "_blank"
-    },
-    {
-      "name": "Email",
-      "url": "mailto:michaelreyes0202@gmail.com",
-      "icon": "footer-icons/Email.svg"
-    }
-  ]
+	"title": "Michael Reyes, Web Developer",
+	"copyright": "© 2026 All rights reserved.",
+	"socialLinks": [
+		{
+			"name": "LinkedIn",
+			"url": "https://www.linkedin.com/in/michael-reyes-b41801194/",
+			"icon": "footer-icons/LinkedIn.svg",
+			"target": "_blank"
+		},
+		{
+			"name": "GitHub",
+			"url": "https://github.com/reyeskael",
+			"icon": "footer-icons/GitHub.svg",
+			"target": "_blank"
+		},
+		{
+			"name": "Instagram",
+			"url": "https://www.instagram.com/mchlrys.tsx",
+			"icon": "footer-icons/Instagram.svg",
+			"target": "_blank"
+		},
+		{
+			"name": "Facebook",
+			"url": "https://www.facebook.com/mchlrys.tsx",
+			"icon": "footer-icons/Facebook.svg",
+			"target": "_blank"
+		},
+		{
+			"name": "Email",
+			"url": "mailto:michaelreyes0202@gmail.com",
+			"icon": "footer-icons/Email.svg"
+		}
+	]
 }
