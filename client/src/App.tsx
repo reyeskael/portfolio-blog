@@ -4,7 +4,7 @@ import { legacy_createStore as createStore } from 'redux';
 import { ThemeProvider } from '@mui/material';
 
 import './App.css';
-import { BlogPage, MainPage, NotFoundPage } from './page';
+import { BlogPage, CreateBlogPage, MainPage, NotFoundPage } from './page';
 import { Footer, Header } from './component';
 import { customTheme } from './utils';
 import rootReducer from './reducer';
@@ -26,6 +26,7 @@ const App: React.FC = () => {
 				<Routes>
 					<Route path="/" element={<MainPage/>} />
 					<Route path="/blog/:id" element={<BlogPage/>} />
+					<Route path="/admin/create-blog" element={<CreateBlogPage/>} />
 					<Route path="*" element={<NotFoundPage/>} />
 				</Routes>
 				<Footer />
