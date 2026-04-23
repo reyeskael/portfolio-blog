@@ -1,0 +1,10 @@
+name: Github Action Trial
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-13
+    steps:
+      - name: Test
+        run: echo "Hello, World!"
